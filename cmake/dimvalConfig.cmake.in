@@ -1,0 +1,17 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+
+set(DIMVAL_WITH_NLOHMANN_JSON @DIMVAL_WITH_NLOHMANN_JSON@)
+if(DIMVAL_WITH_NLOHMANN_JSON)
+    find_dependency(nlohmann_json 3.12.0)
+endif()
+
+set(DIMVAL_WITH_PARCEL @DIMVAL_WITH_PARCEL@)
+if(DIMVAL_WITH_PARCEL)
+    find_dependency(parcel 0.1.0)
+endif()
+
+include("${CMAKE_CURRENT_LIST_DIR}/dimvalTargets.cmake")
+
+check_required_components(dimval)
