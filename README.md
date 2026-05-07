@@ -1,5 +1,7 @@
 # dimval
 
+[![CI](https://github.com/aurimasniekis/cpp-dimval/actions/workflows/ci.yml/badge.svg)](https://github.com/aurimasniekis/cpp-dimval/actions/workflows/ci.yml)
+
 A header-only C++23 library for *dimensional values* — numbers paired with
 units (`Meter`, `Hertz`, `Decibel`, …) and optional semantic measures
 (`Distance`, `CenterFrequency`, `Snr`, …) at the type level. Conversions,
@@ -73,8 +75,8 @@ one of the supported integrations.
 ```cmake
 include(FetchContent)
 FetchContent_Declare(dimval
-    URL      https://github.com/aurimasniekis/dimval/archive/refs/tags/v0.1.0.tar.gz
-    URL_HASH SHA256=0000000000000000000000000000000000000000000000000000000000000000
+    URL      https://github.com/aurimasniekis/cpp-dimval/archive/refs/tags/v0.1.0.tar.gz
+    URL_HASH SHA256=6b49d304075def6749b29f6318fb474cd1e3e5a408e43f6e3165bd02c60e7d0d
 )
 FetchContent_MakeAvailable(dimval)
 
