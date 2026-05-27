@@ -76,8 +76,8 @@ one of the supported integrations.
 ```cmake
 include(FetchContent)
 FetchContent_Declare(dimval
-    URL      https://github.com/aurimasniekis/cpp-dimval/archive/refs/tags/v0.1.0.tar.gz
-    URL_HASH SHA256=6b49d304075def6749b29f6318fb474cd1e3e5a408e43f6e3165bd02c60e7d0d
+    URL      https://github.com/aurimasniekis/cpp-dimval/archive/refs/tags/v0.2.0.tar.gz
+    URL_HASH SHA256=<sha256-of-v0.2.0-tarball>
 )
 FetchContent_MakeAvailable(dimval)
 
@@ -94,7 +94,7 @@ is preferred over a new download.
 ### CMake — `find_package` after `cmake --install`
 
 ```cmake
-find_package(dimval 0.1 REQUIRED)
+find_package(dimval 0.2 REQUIRED)
 target_link_libraries(my_app PRIVATE dimval::dimval)
 ```
 
@@ -106,7 +106,7 @@ installed for the install rules to stay enabled.
 ### Meson
 
 ```meson
-dimval_dep = dependency('dimval', version: '>=0.1.0',
+dimval_dep = dependency('dimval', version: '>=0.2.0',
     fallback: ['dimval', 'dimval_dep'])
 ```
 

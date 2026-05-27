@@ -2,6 +2,9 @@
 
 include(CMakeFindDependencyMacro)
 
+# commons is a mandatory core dependency (provides comms::Icon / comms::Color).
+find_dependency(commons 0.1.3)
+
 set(DIMVAL_WITH_NLOHMANN_JSON @DIMVAL_WITH_NLOHMANN_JSON@)
 if(DIMVAL_WITH_NLOHMANN_JSON)
     find_dependency(nlohmann_json 3.12.0)
@@ -9,7 +12,7 @@ endif()
 
 set(DIMVAL_WITH_PARCEL @DIMVAL_WITH_PARCEL@)
 if(DIMVAL_WITH_PARCEL)
-    find_dependency(parcel 0.1.0)
+    find_dependency(parcel 0.2.0)
 endif()
 
 include("${CMAKE_CURRENT_LIST_DIR}/dimvalTargets.cmake")
