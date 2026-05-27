@@ -12,8 +12,12 @@
 #include <dimval/parse_detail.hpp>
 #include <dimval/traits.hpp>
 
+#include <commons/color.hpp>
+#include <commons/icon.hpp>
+
 #include <expected>
 #include <memory>
+#include <optional>
 #include <string>
 #include <string_view>
 #include <type_traits>
@@ -94,10 +98,10 @@ struct UnitValue : public IUnitValue {
     [[nodiscard]] static constexpr std::string_view long_name() noexcept {
         return U::long_name;
     }
-    [[nodiscard]] static constexpr std::string_view icon() noexcept {
+    [[nodiscard]] static constexpr std::optional<comms::Icon> icon() noexcept {
         return U::icon;
     }
-    [[nodiscard]] static constexpr std::string_view color() noexcept {
+    [[nodiscard]] static constexpr std::optional<comms::Color> color() noexcept {
         return U::color;
     }
 

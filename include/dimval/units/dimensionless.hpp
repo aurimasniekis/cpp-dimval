@@ -14,8 +14,8 @@ DIMVAL_DEFINE_UNIT(Count,
                    "count",
                    "count",
                    1.0,
-                   "mdi:counter",
-                   ::dimval::palette::grey_400,
+                   ::comms::Icons::mdi::counter,
+                   ::comms::Colors::mui::grey[400],
                    static constexpr int default_precision = 0;
                    static constexpr bool no_space_before_symbol = true;)
 
@@ -27,8 +27,8 @@ DIMVAL_DEFINE_UNIT(Ratio,
                    "ratio",
                    "ratio",
                    1.0,
-                   "mdi:percent-outline",
-                   ::dimval::palette::grey_400)
+                   ::comms::Icons::mdi::percent_outline,
+                   ::comms::Colors::mui::grey[400])
 
 // NOLINTNEXTLINE(readability-redundant-string-init)
 DIMVAL_DEFINE_UNIT(Dimensionless,
@@ -38,8 +38,8 @@ DIMVAL_DEFINE_UNIT(Dimensionless,
                    "dimensionless",
                    "dimensionless",
                    1.0,
-                   "mdi:variable",
-                   ::dimval::palette::grey_400,
+                   ::comms::Icons::mdi::variable,
+                   ::comms::Colors::mui::grey[400],
                    static constexpr bool no_space_before_symbol = true;)
 
 DIMVAL_DEFINE_UNIT(Percent,
@@ -49,8 +49,8 @@ DIMVAL_DEFINE_UNIT(Percent,
                    "percent",
                    "ratio",
                    0.01,
-                   "mdi:percent",
-                   ::dimval::palette::grey_400,
+                   ::comms::Icons::mdi::percent,
+                   ::comms::Colors::mui::grey[400],
                    static constexpr ::std::string_view formatter = "percent";
                    static constexpr int default_precision = 2;
                    static constexpr bool no_space_before_symbol = true;)
@@ -62,8 +62,8 @@ DIMVAL_DEFINE_UNIT(PartsPerMillion,
                    "parts per million",
                    "ratio",
                    1e-6,
-                   "mdi:tune-variant",
-                   ::dimval::palette::cyan_400,
+                   ::comms::Icons::mdi::tune_variant,
+                   ::comms::Colors::mui::cyan[400],
                    static constexpr int default_precision = 2;)
 
 DIMVAL_DEFINE_UNIT(PartsPerBillion,
@@ -73,6 +73,6 @@ DIMVAL_DEFINE_UNIT(PartsPerBillion,
                    "parts per billion",
                    "ratio",
                    1e-9,
-                   "mdi:tune",
-                   ::dimval::palette::cyan_500,
+                   ::comms::Icons::mdi::tune,
+                   ::comms::Colors::mui::cyan[500],
                    static constexpr int default_precision = 2;)

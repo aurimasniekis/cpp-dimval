@@ -13,8 +13,8 @@ DIMVAL_DEFINE_UNIT(Frame,
                    "frame",
                    "count_event",
                    1.0,
-                   "mdi:movie-roll",
-                   dv::palette::blue_400)
+                   ::comms::Icons::mdi::movie_roll,
+                   ::comms::Colors::mui::blue[400])
 
 DIMVAL_DEFINE_UNIT(SubFrame,
                    "subframe",
@@ -23,8 +23,8 @@ DIMVAL_DEFINE_UNIT(SubFrame,
                    "subframe",
                    "count_event",
                    1.0 / 16.0,  // 16 subframes per frame
-                   "mdi:movie-roll-outline",
-                   dv::palette::blue_300)
+                   ::comms::Icon::from("mdi:movie-roll-outline"),
+                   ::comms::Colors::mui::blue[300])
 
 TEST(CustomUnit, DefinesAndRegisters) {
     const auto& reg = dv::UnitRegistry::global();
@@ -46,8 +46,8 @@ TEST(CustomUnit, ConvertWithinKind) {
 
 TEST(CustomUnit, IconAndColor) {
     auto v = dv::unit_value<dv::Frame>(1.0);
-    EXPECT_EQ(v.icon(), "mdi:movie-roll");
-    EXPECT_EQ(v.color(), dv::palette::blue_400);
+    EXPECT_EQ(v.icon(), comms::Icon::from("mdi:movie-roll"));
+    EXPECT_EQ(v.color(), std::optional{::comms::Colors::mui::blue[400]});
 }
 
 TEST(CustomUnit, RuntimeRegistration) {

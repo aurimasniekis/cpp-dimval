@@ -9,8 +9,15 @@
 // SI base units
 // -----------------------------------------------------------------------------
 
-DIMVAL_DEFINE_UNIT(
-    Meter, "m", "m", "m", "meter", "length", 1.0, "tabler:ruler", ::dimval::palette::teal_400)
+DIMVAL_DEFINE_UNIT(Meter,
+                   "m",
+                   "m",
+                   "m",
+                   "meter",
+                   "length",
+                   1.0,
+                   ::comms::Icon::from("tabler:ruler"),
+                   ::comms::Colors::mui::teal[400])
 
 DIMVAL_DEFINE_UNIT(Kilogram,
                    "kg",
@@ -19,11 +26,18 @@ DIMVAL_DEFINE_UNIT(Kilogram,
                    "kilogram",
                    "mass",
                    1.0,
-                   "mdi:weight",
-                   ::dimval::palette::blue_grey_400)
+                   ::comms::Icons::mdi::weight,
+                   ::comms::Colors::mui::blue_grey[400])
 
-DIMVAL_DEFINE_UNIT(
-    Second, "s", "s", "s", "second", "time", 1.0, "ph:clock", ::dimval::palette::blue_400)
+DIMVAL_DEFINE_UNIT(Second,
+                   "s",
+                   "s",
+                   "s",
+                   "second",
+                   "time",
+                   1.0,
+                   ::comms::Icon::from("ph:clock"),
+                   ::comms::Colors::mui::blue[400])
 
 DIMVAL_DEFINE_UNIT(Ampere,
                    "A",
@@ -32,8 +46,8 @@ DIMVAL_DEFINE_UNIT(Ampere,
                    "ampere",
                    "current",
                    1.0,
-                   "material-symbols:electric-bolt-rounded",
-                   ::dimval::palette::amber_600)
+                   ::comms::Icon::from("material-symbols:electric-bolt-rounded"),
+                   ::comms::Colors::mui::amber[600])
 
 DIMVAL_DEFINE_UNIT(Kelvin,
                    "K",
@@ -42,8 +56,8 @@ DIMVAL_DEFINE_UNIT(Kelvin,
                    "kelvin",
                    "temperature",
                    1.0,
-                   "ph:thermometer-light",
-                   ::dimval::palette::orange_300)
+                   ::comms::Icon::from("ph:thermometer-light"),
+                   ::comms::Colors::mui::orange[300])
 
 DIMVAL_DEFINE_UNIT(Mole,
                    "mol",
@@ -52,8 +66,8 @@ DIMVAL_DEFINE_UNIT(Mole,
                    "mole",
                    "amount_of_substance",
                    1.0,
-                   "mdi:beaker-outline",
-                   ::dimval::palette::blue_grey_400)
+                   ::comms::Icons::mdi::beaker_outline,
+                   ::comms::Colors::mui::blue_grey[400])
 
 DIMVAL_DEFINE_UNIT(Candela,
                    "cd",
@@ -62,15 +76,22 @@ DIMVAL_DEFINE_UNIT(Candela,
                    "candela",
                    "luminous_intensity",
                    1.0,
-                   "mdi:lightbulb-outline",
-                   ::dimval::palette::yellow_400)
+                   ::comms::Icons::mdi::lightbulb_outline,
+                   ::comms::Colors::mui::yellow[400])
 
 // -----------------------------------------------------------------------------
 // Time alternates (canonical = Second; linearly converting alt non-prefix units)
 // -----------------------------------------------------------------------------
 
-DIMVAL_DEFINE_UNIT(
-    Minute, "min", "min", "min", "minute", "time", 60.0, "mdi:timer", ::dimval::palette::blue_300)
+DIMVAL_DEFINE_UNIT(Minute,
+                   "min",
+                   "min",
+                   "min",
+                   "minute",
+                   "time",
+                   60.0,
+                   ::comms::Icons::mdi::timer,
+                   ::comms::Colors::mui::blue[300])
 DIMVAL_DEFINE_UNIT(Hour,
                    "h",
                    "h",
@@ -78,10 +99,17 @@ DIMVAL_DEFINE_UNIT(Hour,
                    "hour",
                    "time",
                    3600.0,
-                   "mdi:clock-time-three-outline",
-                   ::dimval::palette::blue_500)
-DIMVAL_DEFINE_UNIT(
-    Day, "d", "d", "d", "day", "time", 86400.0, "mdi:calendar", ::dimval::palette::blue_600)
+                   ::comms::Icons::mdi::clock_time_three_outline,
+                   ::comms::Colors::mui::blue[500])
+DIMVAL_DEFINE_UNIT(Day,
+                   "d",
+                   "d",
+                   "d",
+                   "day",
+                   "time",
+                   86400.0,
+                   ::comms::Icons::mdi::calendar,
+                   ::comms::Colors::mui::blue[600])
 
 // -----------------------------------------------------------------------------
 // Temperature alternates (canonical = Kelvin)
@@ -94,8 +122,8 @@ DIMVAL_DEFINE_UNIT(Celsius,
                    "degree Celsius",
                    "temperature",
                    1.0,
-                   "mdi:thermometer-lines",
-                   ::dimval::palette::orange_400,
+                   ::comms::Icons::mdi::thermometer_lines,
+                   ::comms::Colors::mui::orange[400],
                    static constexpr double offset = 273.15;
                    static constexpr int default_precision = 1;)
 DIMVAL_DEFINE_UNIT(Fahrenheit,
@@ -105,8 +133,8 @@ DIMVAL_DEFINE_UNIT(Fahrenheit,
                    "degree Fahrenheit",
                    "temperature",
                    5.0 / 9.0,
-                   "mdi:thermometer",
-                   ::dimval::palette::orange_500,
+                   ::comms::Icons::mdi::thermometer,
+                   ::comms::Colors::mui::orange[500],
                    static constexpr double offset = 273.15 - 32.0 * 5.0 / 9.0;
                    static constexpr int default_precision = 1;)
 
@@ -121,8 +149,8 @@ DIMVAL_DEFINE_UNIT(Radian,
                    "radian",
                    "angle",
                    1.0,
-                   "mdi:angle-obtuse",
-                   ::dimval::palette::deep_purple_400)
+                   ::comms::Icons::mdi::angle_obtuse,
+                   ::comms::Colors::mui::deep_purple[400])
 
 DIMVAL_DEFINE_UNIT(Steradian,
                    "sr",
@@ -131,8 +159,8 @@ DIMVAL_DEFINE_UNIT(Steradian,
                    "steradian",
                    "solid_angle",
                    1.0,
-                   "mdi:circle-outline",
-                   ::dimval::palette::deep_purple_300)
+                   ::comms::Icons::mdi::circle_outline,
+                   ::comms::Colors::mui::deep_purple[300])
 
 DIMVAL_DEFINE_UNIT(Hertz,
                    "Hz",
@@ -141,8 +169,8 @@ DIMVAL_DEFINE_UNIT(Hertz,
                    "hertz",
                    "frequency",
                    1.0,
-                   "ph:wave-sine",
-                   ::dimval::palette::light_blue_400)
+                   ::comms::Icon::from("ph:wave-sine"),
+                   ::comms::Colors::mui::light_blue[400])
 
 DIMVAL_DEFINE_UNIT(Newton,
                    "N",
@@ -151,8 +179,8 @@ DIMVAL_DEFINE_UNIT(Newton,
                    "newton",
                    "force",
                    1.0,
-                   "mdi:arrow-right-bold",
-                   ::dimval::palette::blue_grey_500)
+                   ::comms::Icons::mdi::arrow_right_bold,
+                   ::comms::Colors::mui::blue_grey[500])
 
 DIMVAL_DEFINE_UNIT(Pascal,
                    "Pa",
@@ -161,11 +189,18 @@ DIMVAL_DEFINE_UNIT(Pascal,
                    "pascal",
                    "pressure",
                    1.0,
-                   "ph:gauge",
-                   ::dimval::palette::blue_grey_400)
+                   ::comms::Icon::from("ph:gauge"),
+                   ::comms::Colors::mui::blue_grey[400])
 
-DIMVAL_DEFINE_UNIT(
-    Joule, "J", "J", "J", "joule", "energy", 1.0, "mdi:flash", ::dimval::palette::deep_orange_500)
+DIMVAL_DEFINE_UNIT(Joule,
+                   "J",
+                   "J",
+                   "J",
+                   "joule",
+                   "energy",
+                   1.0,
+                   ::comms::Icons::mdi::flash,
+                   ::comms::Colors::mui::deep_orange[500])
 
 DIMVAL_DEFINE_UNIT(Watt,
                    "W",
@@ -174,8 +209,8 @@ DIMVAL_DEFINE_UNIT(Watt,
                    "watt",
                    "power",
                    1.0,
-                   "mdi:lightning-bolt",
-                   ::dimval::palette::deep_orange_400)
+                   ::comms::Icons::mdi::lightning_bolt,
+                   ::comms::Colors::mui::deep_orange[400])
 
 DIMVAL_DEFINE_UNIT(Coulomb,
                    "C",
@@ -184,8 +219,8 @@ DIMVAL_DEFINE_UNIT(Coulomb,
                    "coulomb",
                    "charge",
                    1.0,
-                   "mdi:transmission-tower",
-                   ::dimval::palette::amber_700)
+                   ::comms::Icons::mdi::transmission_tower,
+                   ::comms::Colors::mui::amber[700])
 
 DIMVAL_DEFINE_UNIT(Volt,
                    "V",
@@ -194,8 +229,8 @@ DIMVAL_DEFINE_UNIT(Volt,
                    "volt",
                    "voltage",
                    1.0,
-                   "material-symbols:electric-bolt-rounded",
-                   ::dimval::palette::amber_500)
+                   ::comms::Icon::from("material-symbols:electric-bolt-rounded"),
+                   ::comms::Colors::mui::amber[500])
 
 DIMVAL_DEFINE_UNIT(Farad,
                    "F",
@@ -204,11 +239,18 @@ DIMVAL_DEFINE_UNIT(Farad,
                    "farad",
                    "capacitance",
                    1.0,
-                   "mdi:capacitor",
-                   ::dimval::palette::brown_300)
+                   ::comms::Icon::from("mdi:capacitor"),
+                   ::comms::Colors::mui::brown[300])
 
-DIMVAL_DEFINE_UNIT(
-    Ohm, "ohm", "Ω", "Ω", "ohm", "resistance", 1.0, "mdi:resistor", ::dimval::palette::brown_400)
+DIMVAL_DEFINE_UNIT(Ohm,
+                   "ohm",
+                   "Ω",
+                   "Ω",
+                   "ohm",
+                   "resistance",
+                   1.0,
+                   ::comms::Icons::mdi::resistor,
+                   ::comms::Colors::mui::brown[400])
 
 DIMVAL_DEFINE_UNIT(Siemens,
                    "siemens",
@@ -217,8 +259,8 @@ DIMVAL_DEFINE_UNIT(Siemens,
                    "siemens",
                    "conductance",
                    1.0,
-                   "mdi:resistor-nodes",
-                   ::dimval::palette::brown_500)
+                   ::comms::Icons::mdi::resistor_nodes,
+                   ::comms::Colors::mui::brown[500])
 
 DIMVAL_DEFINE_UNIT(Weber,
                    "Wb",
@@ -227,8 +269,8 @@ DIMVAL_DEFINE_UNIT(Weber,
                    "weber",
                    "magnetic_flux",
                    1.0,
-                   "ph:magnet",
-                   ::dimval::palette::indigo_400)
+                   ::comms::Icon::from("ph:magnet"),
+                   ::comms::Colors::mui::indigo[400])
 
 DIMVAL_DEFINE_UNIT(Tesla,
                    "T",
@@ -237,11 +279,18 @@ DIMVAL_DEFINE_UNIT(Tesla,
                    "tesla",
                    "magnetic_flux_density",
                    1.0,
-                   "ph:magnet",
-                   ::dimval::palette::indigo_500)
+                   ::comms::Icon::from("ph:magnet"),
+                   ::comms::Colors::mui::indigo[500])
 
-DIMVAL_DEFINE_UNIT(
-    Henry, "H", "H", "H", "henry", "inductance", 1.0, "mdi:coil", ::dimval::palette::brown_600)
+DIMVAL_DEFINE_UNIT(Henry,
+                   "H",
+                   "H",
+                   "H",
+                   "henry",
+                   "inductance",
+                   1.0,
+                   ::comms::Icon::from("mdi:coil"),
+                   ::comms::Colors::mui::brown[600])
 
 DIMVAL_DEFINE_UNIT(Lumen,
                    "lm",
@@ -250,8 +299,8 @@ DIMVAL_DEFINE_UNIT(Lumen,
                    "lumen",
                    "luminous_flux",
                    1.0,
-                   "mdi:lightbulb-outline",
-                   ::dimval::palette::yellow_500)
+                   ::comms::Icons::mdi::lightbulb_outline,
+                   ::comms::Colors::mui::yellow[500])
 
 DIMVAL_DEFINE_UNIT(Lux,
                    "lx",
@@ -260,8 +309,8 @@ DIMVAL_DEFINE_UNIT(Lux,
                    "lux",
                    "illuminance",
                    1.0,
-                   "mdi:brightness-6",
-                   ::dimval::palette::yellow_600)
+                   ::comms::Icons::mdi::brightness_6,
+                   ::comms::Colors::mui::yellow[600])
 
 DIMVAL_DEFINE_UNIT(Becquerel,
                    "Bq",
@@ -270,8 +319,8 @@ DIMVAL_DEFINE_UNIT(Becquerel,
                    "becquerel",
                    "radioactivity",
                    1.0,
-                   "mdi:radioactive-circle-outline",
-                   ::dimval::palette::pink_400)
+                   ::comms::Icons::mdi::radioactive_circle_outline,
+                   ::comms::Colors::mui::pink[400])
 
 DIMVAL_DEFINE_UNIT(Gray,
                    "Gy",
@@ -280,8 +329,8 @@ DIMVAL_DEFINE_UNIT(Gray,
                    "gray",
                    "absorbed_dose",
                    1.0,
-                   "mdi:radioactive-circle-outline",
-                   ::dimval::palette::pink_500)
+                   ::comms::Icons::mdi::radioactive_circle_outline,
+                   ::comms::Colors::mui::pink[500])
 
 DIMVAL_DEFINE_UNIT(Sievert,
                    "Sv",
@@ -290,8 +339,8 @@ DIMVAL_DEFINE_UNIT(Sievert,
                    "sievert",
                    "dose_equivalent",
                    1.0,
-                   "mdi:radioactive-circle-outline",
-                   ::dimval::palette::pink_600)
+                   ::comms::Icons::mdi::radioactive_circle_outline,
+                   ::comms::Colors::mui::pink[600])
 
 DIMVAL_DEFINE_UNIT(Katal,
                    "kat",
@@ -300,8 +349,8 @@ DIMVAL_DEFINE_UNIT(Katal,
                    "katal",
                    "catalytic_activity",
                    1.0,
-                   "mdi:beaker-outline",
-                   ::dimval::palette::pink_300)
+                   ::comms::Icons::mdi::beaker_outline,
+                   ::comms::Colors::mui::pink[300])
 
 // -----------------------------------------------------------------------------
 // Volume / mass alternates
@@ -314,8 +363,8 @@ DIMVAL_DEFINE_UNIT(Litre,
                    "litre",
                    "volume",
                    1.0,
-                   "mdi:water-outline",
-                   ::dimval::palette::blue_grey_300)
+                   ::comms::Icons::mdi::water_outline,
+                   ::comms::Colors::mui::blue_grey[300])
 
 DIMVAL_DEFINE_UNIT(CubicMeter,
                    "m3",
@@ -324,11 +373,18 @@ DIMVAL_DEFINE_UNIT(CubicMeter,
                    "cubic meter",
                    "volume",
                    1000.0,
-                   "mdi:cube-outline",
-                   ::dimval::palette::blue_grey_400)
+                   ::comms::Icons::mdi::cube_outline,
+                   ::comms::Colors::mui::blue_grey[400])
 
-DIMVAL_DEFINE_UNIT(
-    Tonne, "t", "t", "t", "tonne", "mass", 1000.0, "mdi:weight", ::dimval::palette::blue_grey_500)
+DIMVAL_DEFINE_UNIT(Tonne,
+                   "t",
+                   "t",
+                   "t",
+                   "tonne",
+                   "mass",
+                   1000.0,
+                   ::comms::Icons::mdi::weight,
+                   ::comms::Colors::mui::blue_grey[500])
 
 // -----------------------------------------------------------------------------
 // Pressure / energy alternates
@@ -341,8 +397,8 @@ DIMVAL_DEFINE_UNIT(Bar,
                    "bar",
                    "pressure",
                    1e5,
-                   "ph:gauge",
-                   ::dimval::palette::blue_grey_500,
+                   ::comms::Icon::from("ph:gauge"),
+                   ::comms::Colors::mui::blue_grey[500],
                    static constexpr int default_precision = 2;)
 
 DIMVAL_DEFINE_UNIT(Atmosphere,
@@ -352,8 +408,8 @@ DIMVAL_DEFINE_UNIT(Atmosphere,
                    "standard atmosphere",
                    "pressure",
                    101325.0,
-                   "ph:gauge",
-                   ::dimval::palette::blue_grey_600,
+                   ::comms::Icon::from("ph:gauge"),
+                   ::comms::Colors::mui::blue_grey[600],
                    static constexpr int default_precision = 3;)
 
 DIMVAL_DEFINE_UNIT(KilowattHour,
@@ -363,8 +419,8 @@ DIMVAL_DEFINE_UNIT(KilowattHour,
                    "kilowatt-hour",
                    "energy",
                    3.6e6,
-                   "mdi:battery-high",
-                   ::dimval::palette::deep_orange_700,
+                   ::comms::Icons::mdi::battery_high,
+                   ::comms::Colors::mui::deep_orange[700],
                    static constexpr int default_precision = 2;)
 
 // -----------------------------------------------------------------------------
@@ -378,8 +434,8 @@ DIMVAL_DEFINE_UNIT(Gauss,
                    "gauss",
                    "magnetic_flux_density",
                    1e-4,
-                   "ph:magnet",
-                   ::dimval::palette::indigo_400)
+                   ::comms::Icon::from("ph:magnet"),
+                   ::comms::Colors::mui::indigo[400])
 
 // -----------------------------------------------------------------------------
 // Angle (canonical Radian; Degree alt non-prefix unit)
@@ -392,8 +448,8 @@ DIMVAL_DEFINE_UNIT(Degree,
                    "degree",
                    "angle",
                    0.017453292519943295,
-                   "mdi:angle-obtuse",
-                   ::dimval::palette::deep_purple_400,
+                   ::comms::Icons::mdi::angle_obtuse,
+                   ::comms::Colors::mui::deep_purple[400],
                    static constexpr ::std::string_view formatter = "degree";
                    static constexpr int default_precision = 2;
                    static constexpr bool no_space_before_symbol = true;)
@@ -406,8 +462,8 @@ DIMVAL_DEFINE_UNIT(Arcminute,
                    "arcminute",
                    "angle",
                    2.908882086657216e-4,
-                   "mdi:angle-acute",
-                   ::dimval::palette::deep_purple_300,
+                   ::comms::Icons::mdi::angle_acute,
+                   ::comms::Colors::mui::deep_purple[300],
                    static constexpr int default_precision = 2;
                    static constexpr bool no_space_before_symbol = true;)
 
@@ -419,7 +475,7 @@ DIMVAL_DEFINE_UNIT(Arcsecond,
                    "arcsecond",
                    "angle",
                    4.84813681109536e-6,
-                   "mdi:angle-acute",
-                   ::dimval::palette::deep_purple_200,
+                   ::comms::Icons::mdi::angle_acute,
+                   ::comms::Colors::mui::deep_purple[200],
                    static constexpr int default_precision = 3;
                    static constexpr bool no_space_before_symbol = true;)

@@ -13,75 +13,79 @@ DIMVAL_DEFINE_MEASURE(BitRate,
                       ::dimval::BitPerSecond,
                       "bit_rate",
                       "Bit Rate",
-                      "mdi:transfer",
-                      ::dimval::palette::light_blue_400)
+                      ::comms::Icons::mdi::transfer,
+                      ::comms::Colors::mui::light_blue[400])
 
 DIMVAL_DEFINE_MEASURE(ByteRate,
                       ::dimval::BytePerSecond,
                       "byte_rate",
                       "Byte Rate",
-                      "mdi:transfer",
-                      ::dimval::palette::light_blue_400)
+                      ::comms::Icons::mdi::transfer,
+                      ::comms::Colors::mui::light_blue[400])
 
 DIMVAL_DEFINE_MEASURE(Ber,
                       ::dimval::Percent,
                       "ber",
                       "Bit Error Rate",
-                      "mdi:percent",
-                      ::dimval::palette::red_400,
+                      ::comms::Icons::mdi::percent,
+                      ::comms::Colors::mui::red[400],
                       static constexpr int default_precision = 2;)
 
 DIMVAL_DEFINE_MEASURE(Fer,
                       ::dimval::Percent,
                       "fer",
                       "Frame Error Rate",
-                      "mdi:percent",
-                      ::dimval::palette::red_400,
+                      ::comms::Icons::mdi::percent,
+                      ::comms::Colors::mui::red[400],
                       static constexpr int default_precision = 2;)
 
 DIMVAL_DEFINE_MEASURE(PacketErrorRate,
                       ::dimval::Percent,
                       "packet_error_rate",
                       "Packet Error Rate",
-                      "mdi:percent",
-                      ::dimval::palette::red_400,
+                      ::comms::Icons::mdi::percent,
+                      ::comms::Colors::mui::red[400],
                       static constexpr int default_precision = 2;)
 
 DIMVAL_DEFINE_MEASURE(Per,
                       ::dimval::Percent,
                       "per",
                       "Packet Error Rate",
-                      "mdi:percent",
-                      ::dimval::palette::red_400,
+                      ::comms::Icons::mdi::percent,
+                      ::comms::Colors::mui::red[400],
                       static constexpr int default_precision = 2;)
 
 DIMVAL_DEFINE_MEASURE(FrameRate,
                       ::dimval::Hertz,
                       "frame_rate",
                       "Frame Rate",
-                      "mdi:chart-timeline-variant",
-                      ::dimval::palette::light_blue_400)
+                      ::comms::Icons::mdi::chart_timeline_variant,
+                      ::comms::Colors::mui::light_blue[400])
 
-DIMVAL_DEFINE_MEASURE(
-    Latency, ::dimval::Second, "latency", "Latency", "mdi:timer-sand", ::dimval::palette::blue_400)
+DIMVAL_DEFINE_MEASURE(Latency,
+                      ::dimval::Second,
+                      "latency",
+                      "Latency",
+                      ::comms::Icons::mdi::timer_sand,
+                      ::comms::Colors::mui::blue[400])
 
 DIMVAL_DEFINE_MEASURE(Jitter,
                       ::dimval::Second,
                       "jitter",
                       "Jitter",
-                      "mdi:chart-bell-curve",
-                      ::dimval::palette::blue_400)
+                      ::comms::Icons::mdi::chart_bell_curve,
+                      ::comms::Colors::mui::blue[400])
 
 DIMVAL_DEFINE_MEASURE(OffsetTime,
                       ::dimval::Second,
                       "offset_time",
                       "Time Offset",
-                      "mdi:clock-outline",
-                      ::dimval::palette::cyan_400)
+                      ::comms::Icons::mdi::clock_outline,
+                      ::comms::Colors::mui::cyan[400])
 
 DIMVAL_DEFINE_MEASURE(RotationRate,
                       ::dimval::RotationPerMinute,
                       "rotation_rate",
                       "Rotation Rate",
-                      "mdi:rotate-right",
-                      ::dimval::palette::light_green_400)
+                      ::comms::Icons::mdi::rotate_right,
+                      ::comms::Colors::mui::light_green[400])

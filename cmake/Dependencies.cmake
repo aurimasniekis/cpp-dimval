@@ -14,14 +14,26 @@ if(DIMVAL_WITH_NLOHMANN_JSON)
     FetchContent_MakeAvailable(nlohmann_json)
 endif()
 
+# commons is a hard dependency of dimval's core descriptor types (comms::Icon /
+# comms::Color), independent of the optional parcel integration. Declaring it
+# here, before the parcel block, also makes parcel's own internal
+# FetchContent_Declare(commons) a no-op — avoiding a double fetch.
+FetchContent_Declare(
+    commons
+    GIT_REPOSITORY https://github.com/aurimasniekis/cpp-commons.git
+    GIT_TAG        v0.1.3
+    FIND_PACKAGE_ARGS 0.1.3
+)
+FetchContent_MakeAvailable(commons)
+
 if(DIMVAL_WITH_PARCEL)
     set(PARCEL_BUILD_TESTS    OFF CACHE INTERNAL "")
     set(PARCEL_BUILD_EXAMPLES OFF CACHE INTERNAL "")
     FetchContent_Declare(
         parcel
         GIT_REPOSITORY https://github.com/aurimasniekis/cpp-parcel.git
-        GIT_TAG        v0.1.0
-        FIND_PACKAGE_ARGS 0.1.0
+        GIT_TAG        v0.2.0
+        FIND_PACKAGE_ARGS 0.2.0
     )
     FetchContent_MakeAvailable(parcel)
 endif()

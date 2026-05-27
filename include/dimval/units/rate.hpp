@@ -13,8 +13,8 @@ DIMVAL_DEFINE_UNIT(BitPerSecond,
                    "bits per second",
                    "data_rate",
                    1.0,
-                   "mdi:transfer",
-                   ::dimval::palette::cyan_400,
+                   ::comms::Icons::mdi::transfer,
+                   ::comms::Colors::mui::cyan[400],
                    static constexpr ::std::string_view formatter = "bitrate";
                    static constexpr int default_precision = 2;)
 
@@ -25,7 +25,7 @@ DIMVAL_DEFINE_UNIT(BytePerSecond,
                    "bytes per second",
                    "data_rate",
                    8.0,
-                   "mdi:transfer",
-                   ::dimval::palette::cyan_500,
+                   ::comms::Icons::mdi::transfer,
+                   ::comms::Colors::mui::cyan[500],
                    static constexpr ::std::string_view formatter = "bitrate";
                    static constexpr int default_precision = 2;)

@@ -23,8 +23,8 @@ DIMVAL_DEFINE_UNIT(Inch,
                    "inch",
                    "length",
                    0.0254,
-                   "tabler:ruler",
-                   ::dimval::palette::teal_300,
+                   ::comms::Icon::from("tabler:ruler"),
+                   ::comms::Colors::mui::teal[300],
                    static constexpr int default_precision = 2;)
 
 DIMVAL_DEFINE_UNIT(Foot,
@@ -34,8 +34,8 @@ DIMVAL_DEFINE_UNIT(Foot,
                    "foot",
                    "length",
                    0.3048,
-                   "tabler:ruler",
-                   ::dimval::palette::teal_400,
+                   ::comms::Icon::from("tabler:ruler"),
+                   ::comms::Colors::mui::teal[400],
                    static constexpr int default_precision = 2;)
 
 DIMVAL_DEFINE_UNIT(Mile,
@@ -45,8 +45,8 @@ DIMVAL_DEFINE_UNIT(Mile,
                    "mile",
                    "length",
                    1609.344,
-                   "mdi:map-marker-distance",
-                   ::dimval::palette::teal_500,
+                   ::comms::Icons::mdi::map_marker_distance,
+                   ::comms::Colors::mui::teal[500],
                    static constexpr int default_precision = 2;)
 
 DIMVAL_DEFINE_UNIT(NauticalMile,
@@ -56,8 +56,8 @@ DIMVAL_DEFINE_UNIT(NauticalMile,
                    "nautical mile",
                    "length",
                    1852.0,
-                   "mdi:sail-boat",
-                   ::dimval::palette::teal_600,
+                   ::comms::Icons::mdi::sail_boat,
+                   ::comms::Colors::mui::teal[600],
                    static constexpr int default_precision = 2;)
 
 // -----------------------------------------------------------------------------
@@ -71,8 +71,8 @@ DIMVAL_DEFINE_UNIT(Pound,
                    "pound",
                    "mass",
                    0.45359237,
-                   "mdi:weight-pound",
-                   ::dimval::palette::blue_grey_300,
+                   ::comms::Icons::mdi::weight_pound,
+                   ::comms::Colors::mui::blue_grey[300],
                    static constexpr int default_precision = 2;)
 
 // -----------------------------------------------------------------------------
@@ -86,8 +86,8 @@ DIMVAL_DEFINE_UNIT(PoundsPerSquareInch,
                    "pound per square inch",
                    "pressure",
                    6894.757293168,
-                   "ph:gauge",
-                   ::dimval::palette::blue_grey_400,
+                   ::comms::Icon::from("ph:gauge"),
+                   ::comms::Colors::mui::blue_grey[400],
                    static constexpr int default_precision = 2;)
 
 // -----------------------------------------------------------------------------
@@ -103,6 +103,6 @@ DIMVAL_DEFINE_UNIT(Gallon,
                    "US liquid gallon",
                    "volume",
                    3.785411784,
-                   "mdi:gas-station",
-                   ::dimval::palette::blue_grey_300,
+                   ::comms::Icons::mdi::gas_station,
+                   ::comms::Colors::mui::blue_grey[300],
                    static constexpr int default_precision = 2;)

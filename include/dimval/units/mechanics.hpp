@@ -19,8 +19,8 @@ DIMVAL_DEFINE_UNIT(MeterPerSecondSquared,
                    "meter per second squared",
                    "acceleration",
                    1.0,
-                   "mdi:axis-arrow",
-                   ::dimval::palette::red_400,
+                   ::comms::Icons::mdi::axis_arrow,
+                   ::comms::Colors::mui::red[400],
                    static constexpr int default_precision = 3;)
 
 // 1 g₀ = 9.80665 m/s² exactly (CGPM 1901). The id is "g0" so the bare symbol
@@ -32,8 +32,8 @@ DIMVAL_DEFINE_UNIT(StandardGravity,
                    "standard gravity",
                    "acceleration",
                    9.80665,
-                   "mdi:arrow-down-bold",
-                   ::dimval::palette::red_500,
+                   ::comms::Icons::mdi::arrow_down_bold,
+                   ::comms::Colors::mui::red[500],
                    static constexpr int default_precision = 3;)
 
 // -----------------------------------------------------------------------------
@@ -47,8 +47,8 @@ DIMVAL_DEFINE_UNIT(SquareMeter,
                    "square meter",
                    "area",
                    1.0,
-                   "mdi:vector-square",
-                   ::dimval::palette::green_400,
+                   ::comms::Icons::mdi::vector_square,
+                   ::comms::Colors::mui::green[400],
                    static constexpr int default_precision = 2;)
 
 DIMVAL_DEFINE_UNIT(Hectare,
@@ -58,8 +58,8 @@ DIMVAL_DEFINE_UNIT(Hectare,
                    "hectare",
                    "area",
                    1e4,
-                   "mdi:vector-square",
-                   ::dimval::palette::green_500,
+                   ::comms::Icons::mdi::vector_square,
+                   ::comms::Colors::mui::green[500],
                    static constexpr int default_precision = 2;)
 
 // -----------------------------------------------------------------------------
@@ -73,8 +73,8 @@ DIMVAL_DEFINE_UNIT(KilogramPerCubicMeter,
                    "kilogram per cubic meter",
                    "density",
                    1.0,
-                   "mdi:weight-kilogram",
-                   ::dimval::palette::brown_400,
+                   ::comms::Icons::mdi::weight_kilogram,
+                   ::comms::Colors::mui::brown[400],
                    static constexpr int default_precision = 2;)
 
 DIMVAL_DEFINE_UNIT(GramPerCubicCentimeter,
@@ -84,6 +84,6 @@ DIMVAL_DEFINE_UNIT(GramPerCubicCentimeter,
                    "gram per cubic centimeter",
                    "density",
                    1000.0,
-                   "mdi:weight-gram",
-                   ::dimval::palette::brown_500,
+                   ::comms::Icons::mdi::weight_gram,
+                   ::comms::Colors::mui::brown[500],
                    static constexpr int default_precision = 3;)

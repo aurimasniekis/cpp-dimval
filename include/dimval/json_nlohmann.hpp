@@ -37,6 +37,7 @@
 #include <dimval/unit.hpp>
 
 #include <nlohmann/json.hpp>
+#include <commons/json.hpp>
 
 #include <string>
 
@@ -196,9 +197,10 @@ inline void to_json(::nlohmann::json& j, const UnitDescriptor& d) {
         {"offset", d.offset},
         {"formatter", d.formatter},
         {"default_precision", d.default_precision},
-        {"icon", d.icon},
-        {"color", d.color},
     };
+    // nlohmann does not serialize std::optional; an unset field emits null.
+    j["icon"] = d.icon ? ::nlohmann::json(*d.icon) : ::nlohmann::json(nullptr);
+    j["color"] = d.color ? ::nlohmann::json(*d.color) : ::nlohmann::json(nullptr);
 }
 
 inline void to_json(::nlohmann::json& j, const MeasureDescriptor& d) {
@@ -208,9 +210,10 @@ inline void to_json(::nlohmann::json& j, const MeasureDescriptor& d) {
         {"name", d.name},
         {"formatter", d.formatter},
         {"default_precision", d.default_precision},
-        {"icon", d.icon},
-        {"color", d.color},
     };
+    // nlohmann does not serialize std::optional; an unset field emits null.
+    j["icon"] = d.icon ? ::nlohmann::json(*d.icon) : ::nlohmann::json(nullptr);
+    j["color"] = d.color ? ::nlohmann::json(*d.color) : ::nlohmann::json(nullptr);
 }
 
 }  // namespace dimval

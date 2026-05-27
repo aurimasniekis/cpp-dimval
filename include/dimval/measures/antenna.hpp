@@ -13,62 +13,62 @@ DIMVAL_DEFINE_MEASURE(AntennaGain,
                       ::dimval::Decibel,
                       "antenna_gain",
                       "Antenna Gain",
-                      "mdi:antenna",
-                      ::dimval::palette::green_400)
+                      ::comms::Icons::mdi::antenna,
+                      ::comms::Colors::mui::green[400])
 
 DIMVAL_DEFINE_MEASURE(Azimuth,
                       ::dimval::Degree,
                       "azimuth",
                       "Azimuth",
-                      "mdi:compass",
-                      ::dimval::palette::deep_purple_400)
+                      ::comms::Icons::mdi::compass,
+                      ::comms::Colors::mui::deep_purple[400])
 
 DIMVAL_DEFINE_MEASURE(Elevation,
                       ::dimval::Degree,
                       "elevation",
                       "Elevation",
-                      "mdi:angle-acute",
-                      ::dimval::palette::deep_purple_400)
+                      ::comms::Icons::mdi::angle_acute,
+                      ::comms::Colors::mui::deep_purple[400])
 
 DIMVAL_DEFINE_MEASURE(PolarizationAngle,
                       ::dimval::Degree,
                       "polarization_angle",
                       "Polarization Angle",
-                      "mdi:angle-acute",
-                      ::dimval::palette::deep_purple_500)
+                      ::comms::Icons::mdi::angle_acute,
+                      ::comms::Colors::mui::deep_purple[500])
 
 DIMVAL_DEFINE_MEASURE(WavelengthMeasure,
                       ::dimval::Wavelength,
                       "wavelength",
                       "Wavelength",
-                      "ph:wave-sine",
-                      ::dimval::palette::teal_500)
+                      ::comms::Icon::from("ph:wave-sine"),
+                      ::comms::Colors::mui::teal[500])
 
 DIMVAL_DEFINE_MEASURE(Vswr,
                       ::dimval::Percent,
                       "vswr",
                       "Voltage Standing Wave Ratio",
-                      "mdi:sine-wave",
-                      ::dimval::palette::red_400,
+                      ::comms::Icons::mdi::sine_wave,
+                      ::comms::Colors::mui::red[400],
                       static constexpr int default_precision = 2;)
 
 DIMVAL_DEFINE_MEASURE(ReturnLoss,
                       ::dimval::Decibel,
                       "return_loss",
                       "Return Loss",
-                      "mdi:chart-bell-curve",
-                      ::dimval::palette::red_400)
+                      ::comms::Icons::mdi::chart_bell_curve,
+                      ::comms::Colors::mui::red[400])
 
 DIMVAL_DEFINE_MEASURE(SheetResistance,
                       ::dimval::OhmSquare,
                       "sheet_resistance",
                       "Sheet Resistance",
-                      "mdi:grid",
-                      ::dimval::palette::brown_500)
+                      ::comms::Icons::mdi::grid,
+                      ::comms::Colors::mui::brown[500])
 
 DIMVAL_DEFINE_MEASURE(PropagationDelay,
                       ::dimval::Second,
                       "propagation_delay",
                       "Propagation Delay",
-                      "mdi:timer-outline",
-                      ::dimval::palette::blue_400)
+                      ::comms::Icons::mdi::timer_outline,
+                      ::comms::Colors::mui::blue[400])

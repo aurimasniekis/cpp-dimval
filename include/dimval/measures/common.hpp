@@ -13,56 +13,100 @@
 // Geometry / dimensions
 // -----------------------------------------------------------------------------
 
-DIMVAL_DEFINE_MEASURE(
-    Length, ::dimval::Meter, "length", "Length", "tabler:ruler", ::dimval::palette::teal_400)
-DIMVAL_DEFINE_MEASURE(
-    Width, ::dimval::Meter, "width", "Width", "tabler:ruler", ::dimval::palette::teal_400)
-DIMVAL_DEFINE_MEASURE(
-    Height, ::dimval::Meter, "height", "Height", "tabler:ruler", ::dimval::palette::teal_400)
-DIMVAL_DEFINE_MEASURE(
-    Depth, ::dimval::Meter, "depth", "Depth", "tabler:ruler", ::dimval::palette::teal_400)
-DIMVAL_DEFINE_MEASURE(
-    Distance, ::dimval::Meter, "distance", "Distance", "tabler:ruler", ::dimval::palette::teal_400)
+DIMVAL_DEFINE_MEASURE(Length,
+                      ::dimval::Meter,
+                      "length",
+                      "Length",
+                      ::comms::Icon::from("tabler:ruler"),
+                      ::comms::Colors::mui::teal[400])
+DIMVAL_DEFINE_MEASURE(Width,
+                      ::dimval::Meter,
+                      "width",
+                      "Width",
+                      ::comms::Icon::from("tabler:ruler"),
+                      ::comms::Colors::mui::teal[400])
+DIMVAL_DEFINE_MEASURE(Height,
+                      ::dimval::Meter,
+                      "height",
+                      "Height",
+                      ::comms::Icon::from("tabler:ruler"),
+                      ::comms::Colors::mui::teal[400])
+DIMVAL_DEFINE_MEASURE(Depth,
+                      ::dimval::Meter,
+                      "depth",
+                      "Depth",
+                      ::comms::Icon::from("tabler:ruler"),
+                      ::comms::Colors::mui::teal[400])
+DIMVAL_DEFINE_MEASURE(Distance,
+                      ::dimval::Meter,
+                      "distance",
+                      "Distance",
+                      ::comms::Icon::from("tabler:ruler"),
+                      ::comms::Colors::mui::teal[400])
 
 // -----------------------------------------------------------------------------
 // Mass / weight
 // -----------------------------------------------------------------------------
 
-DIMVAL_DEFINE_MEASURE(
-    Mass, ::dimval::Kilogram, "mass", "Mass", "mdi:weight", ::dimval::palette::blue_grey_400)
-DIMVAL_DEFINE_MEASURE(
-    Weight, ::dimval::Kilogram, "weight", "Weight", "mdi:weight", ::dimval::palette::blue_grey_500)
+DIMVAL_DEFINE_MEASURE(Mass,
+                      ::dimval::Kilogram,
+                      "mass",
+                      "Mass",
+                      ::comms::Icons::mdi::weight,
+                      ::comms::Colors::mui::blue_grey[400])
+DIMVAL_DEFINE_MEASURE(Weight,
+                      ::dimval::Kilogram,
+                      "weight",
+                      "Weight",
+                      ::comms::Icons::mdi::weight,
+                      ::comms::Colors::mui::blue_grey[500])
 
 // -----------------------------------------------------------------------------
 // Time
 // -----------------------------------------------------------------------------
 
-DIMVAL_DEFINE_MEASURE(
-    Duration, ::dimval::Second, "duration", "Duration", "ph:clock", ::dimval::palette::blue_400)
+DIMVAL_DEFINE_MEASURE(Duration,
+                      ::dimval::Second,
+                      "duration",
+                      "Duration",
+                      ::comms::Icon::from("ph:clock"),
+                      ::comms::Colors::mui::blue[400])
 DIMVAL_DEFINE_MEASURE(ElapsedTime,
                       ::dimval::Second,
                       "elapsed_time",
                       "Elapsed time",
-                      "mdi:clock-outline",
-                      ::dimval::palette::blue_400)
-DIMVAL_DEFINE_MEASURE(
-    Time, ::dimval::Second, "time", "Time", "ph:clock", ::dimval::palette::blue_400)
+                      ::comms::Icons::mdi::clock_outline,
+                      ::comms::Colors::mui::blue[400])
+DIMVAL_DEFINE_MEASURE(Time,
+                      ::dimval::Second,
+                      "time",
+                      "Time",
+                      ::comms::Icon::from("ph:clock"),
+                      ::comms::Colors::mui::blue[400])
 
 // -----------------------------------------------------------------------------
 // Data size / capacity
 // -----------------------------------------------------------------------------
 
-DIMVAL_DEFINE_MEASURE(
-    Size, ::dimval::Byte, "size", "Size", "mdi:memory", ::dimval::palette::cyan_500)
-DIMVAL_DEFINE_MEASURE(
-    Capacity, ::dimval::Byte, "capacity", "Capacity", "mdi:memory", ::dimval::palette::cyan_500)
+DIMVAL_DEFINE_MEASURE(Size,
+                      ::dimval::Byte,
+                      "size",
+                      "Size",
+                      ::comms::Icons::mdi::memory,
+                      ::comms::Colors::mui::cyan[500])
+DIMVAL_DEFINE_MEASURE(Capacity,
+                      ::dimval::Byte,
+                      "capacity",
+                      "Capacity",
+                      ::comms::Icons::mdi::memory,
+                      ::comms::Colors::mui::cyan[500])
 
 DIMVAL_DEFINE_MEASURE(Throughput,
                       ::dimval::BytePerSecond,
                       "throughput",
                       "Throughput",
-                      "mdi:transfer",
-                      ::dimval::palette::cyan_500)
+                      ::comms::Icons::mdi::transfer,
+                      ::comms::Colors::mui::cyan[500])
 
 // -----------------------------------------------------------------------------
 // Frequency / temperature / dimensionless
@@ -72,42 +116,46 @@ DIMVAL_DEFINE_MEASURE(Frequency,
                       ::dimval::Hertz,
                       "frequency",
                       "Frequency",
-                      "ph:wave-sine",
-                      ::dimval::palette::light_blue_400)
+                      ::comms::Icon::from("ph:wave-sine"),
+                      ::comms::Colors::mui::light_blue[400])
 
 DIMVAL_DEFINE_MEASURE(Temperature,
                       ::dimval::Celsius,
                       "temperature",
                       "Temperature",
-                      "mdi:thermometer-lines",
-                      ::dimval::palette::orange_400)
+                      ::comms::Icons::mdi::thermometer_lines,
+                      ::comms::Colors::mui::orange[400])
 DIMVAL_DEFINE_MEASURE(TemperatureKelvin,
                       ::dimval::Kelvin,
                       "temperature_kelvin",
                       "Thermodynamic Temperature",
-                      "ph:thermometer-light",
-                      ::dimval::palette::orange_400)
+                      ::comms::Icon::from("ph:thermometer-light"),
+                      ::comms::Colors::mui::orange[400])
 
 DIMVAL_DEFINE_MEASURE(Percentage,
                       ::dimval::Ratio,
                       "percentage",
                       "Percentage",
-                      "mdi:percent",
-                      ::dimval::palette::grey_400)
+                      ::comms::Icons::mdi::percent,
+                      ::comms::Colors::mui::grey[400])
 
-DIMVAL_DEFINE_MEASURE(
-    CountMeasure, ::dimval::Count, "count", "Count", "mdi:counter", ::dimval::palette::grey_400)
+DIMVAL_DEFINE_MEASURE(CountMeasure,
+                      ::dimval::Count,
+                      "count",
+                      "Count",
+                      ::comms::Icons::mdi::counter,
+                      ::comms::Colors::mui::grey[400])
 
 DIMVAL_DEFINE_MEASURE(RatioMeasure,
                       ::dimval::Ratio,
                       "ratio",
                       "Ratio",
-                      "mdi:percent-outline",
-                      ::dimval::palette::grey_400)
+                      ::comms::Icons::mdi::percent_outline,
+                      ::comms::Colors::mui::grey[400])
 
 DIMVAL_DEFINE_MEASURE(Angle,
                       ::dimval::Radian,
                       "angle",
                       "Angle",
-                      "mdi:angle-obtuse",
-                      ::dimval::palette::deep_purple_400)
+                      ::comms::Icons::mdi::angle_obtuse,
+                      ::comms::Colors::mui::deep_purple[400])

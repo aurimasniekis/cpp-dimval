@@ -8,6 +8,10 @@
 
 #include <dimval/descriptor.hpp>
 
+#include <commons/color.hpp>
+#include <commons/icon.hpp>
+
+#include <optional>
 #include <string_view>
 
 namespace dimval {
@@ -30,8 +34,8 @@ struct UnitBase : UnitTag {
     static constexpr std::string_view formatter = "default";
     static constexpr int default_precision = -1;
     static constexpr bool no_space_before_symbol = false;
-    static constexpr std::string_view icon = {};
-    static constexpr std::string_view color = {};
+    static constexpr std::optional<comms::Icon> icon = std::nullopt;
+    static constexpr std::optional<comms::Color> color = std::nullopt;
 
     [[nodiscard]] static constexpr UnitDescriptor descriptor() noexcept {
         return UnitDescriptor{
@@ -65,8 +69,8 @@ struct MeasureBase : MeasureTag {
 
     static constexpr std::string_view formatter = {};
     static constexpr int default_precision = -1;
-    static constexpr std::string_view icon = {};
-    static constexpr std::string_view color = {};
+    static constexpr std::optional<comms::Icon> icon = std::nullopt;
+    static constexpr std::optional<comms::Color> color = std::nullopt;
 
     [[nodiscard]] static constexpr MeasureDescriptor descriptor() noexcept {
         return MeasureDescriptor{

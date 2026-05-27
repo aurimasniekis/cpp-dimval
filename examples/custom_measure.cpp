@@ -9,8 +9,8 @@ DIMVAL_DEFINE_MEASURE(StorageCapacity,
                       ::dimval::Byte,
                       "storage_capacity",
                       "Storage capacity",
-                      "mdi:harddisk",
-                      dv::palette::cyan_500)
+                      ::comms::Icons::mdi::harddisk,
+                      ::comms::Colors::mui::cyan[500])
 
 int main() {
     dv::StorageCapacityValue disk = 512.0;

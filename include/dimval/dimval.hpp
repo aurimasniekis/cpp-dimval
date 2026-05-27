@@ -18,6 +18,7 @@
 #include <dimval/registry.hpp>
 #include <dimval/traits.hpp>
 #include <dimval/unit.hpp>
+#include <dimval/version.hpp>
 
 // Built-in catalog.
 #include <dimval/measures/antenna.hpp>
@@ -40,13 +41,13 @@
 namespace dimval {
 
 /** @brief Library version as a dotted `MAJOR.MINOR.PATCH` string. */
-inline constexpr std::string_view version = "0.1.0";
+inline constexpr std::string_view version = DIMVAL_VERSION_STRING;
 
 /** @brief Major version component. */
-inline constexpr int version_major = 0;
+inline constexpr int version_major = DIMVAL_VERSION_MAJOR;
 /** @brief Minor version component. */
-inline constexpr int version_minor = 1;
+inline constexpr int version_minor = DIMVAL_VERSION_MINOR;
 /** @brief Patch version component. */
-inline constexpr int version_patch = 0;
+inline constexpr int version_patch = DIMVAL_VERSION_PATCH;
 
 }  // namespace dimval

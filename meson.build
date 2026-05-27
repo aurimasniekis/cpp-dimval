@@ -1,5 +1,5 @@
 project('dimval', 'cpp',
-    version: '0.1.0',
+    version: '0.2.0',
     license: 'MIT',
     default_options: [
         'cpp_std=c++23',
@@ -9,6 +9,19 @@ project('dimval', 'cpp',
     meson_version: '>=1.3.0',
 )
 
+version_parts = meson.project_version().split('.')
+
+dimval_version_conf = configuration_data()
+dimval_version_conf.set('PROJECT_VERSION_MAJOR', version_parts[0])
+dimval_version_conf.set('PROJECT_VERSION_MINOR', version_parts[1])
+dimval_version_conf.set('PROJECT_VERSION_PATCH', version_parts[2])
+dimval_version_conf.set('PROJECT_VERSION', meson.project_version())
+
+subdir('include/dimval')
+
+# include_directories('include') resolves to both the source-side `include/`
+# and the matching build-side `include/`, so the generated `dimval/version.hpp`
+# is found automatically.
 dimval_inc = include_directories('include')
 
 dimval_deps = []
@@ -28,8 +41,15 @@ if dimval_with_json
     add_project_arguments('-DDIMVAL_WITH_NLOHMANN_JSON=1', language: 'cpp')
 endif
 
+# commons is required unconditionally — dimval's core descriptor types use
+# comms::Icon / comms::Color regardless of the optional integrations. parcel's
+# Meson build does not provide commons, so it is wired in directly here.
+commons_dep = dependency('commons', version: '>=0.1.3',
+    fallback: ['commons', 'commons_dep'])
+dimval_deps += commons_dep
+
 if dimval_with_parcel
-    parcel_dep = dependency('parcel', version: '>=0.1.0',
+    parcel_dep = dependency('parcel', version: '>=0.2.0',
         fallback: ['parcel', 'parcel_dep'])
     dimval_deps += parcel_dep
     add_project_arguments('-DDIMVAL_WITH_PARCEL=1', language: 'cpp')
@@ -43,9 +63,12 @@ dimval_dep = declare_dependency(
 
 meson.override_dependency('dimval', dimval_dep)
 
-install_subdir('include/dimval', install_dir: get_option('includedir'))
+install_subdir('include/dimval',
+    install_dir: get_option('includedir'),
+    exclude_files: ['version.hpp.in', 'meson.build'],
+)
 
-pkg_requires = []
+pkg_requires = ['commons']
 if dimval_with_json
     pkg_requires += 'nlohmann_json'
 endif

@@ -70,13 +70,13 @@ public:
     static ::parcel::cell_t from_json(::parcel::json_t const& j, ::parcel::ParcelRegistry const&) {
         auto v = base_t::template cell_from_json<UnitValue<U, T>>(j, kind_id);
         auto cell = std::make_shared<UnitValueCell>(v);
-        base_t::absorb_meta(j, cell);
+        base_t::absorb_display_info(j, cell);
         return cell;
     }
 
     static ::parcel::cell_type_descriptor_t descriptor() {
         static const auto d = std::make_shared<::parcel::SimpleCellTypeDescriptor<UnitValueCell>>(
-            ::parcel::descriptor::MetaInfo{.name = "dimval::UnitValue"});
+            ::parcel::DisplayInfo{.name = "dimval::UnitValue"});
         return d;
     }
 };
@@ -102,14 +102,14 @@ public:
     static ::parcel::cell_t from_json(::parcel::json_t const& j, ::parcel::ParcelRegistry const&) {
         auto v = base_t::template cell_from_json<MeasureValue<M, T>>(j, kind_id);
         auto cell = std::make_shared<MeasureValueCell>(v);
-        base_t::absorb_meta(j, cell);
+        base_t::absorb_display_info(j, cell);
         return cell;
     }
 
     static ::parcel::cell_type_descriptor_t descriptor() {
         static const auto d =
             std::make_shared<::parcel::SimpleCellTypeDescriptor<MeasureValueCell>>(
-                ::parcel::descriptor::MetaInfo{.name = "dimval::MeasureValue"});
+                ::parcel::DisplayInfo{.name = "dimval::MeasureValue"});
         return d;
     }
 };
@@ -136,14 +136,14 @@ public:
     static ::parcel::cell_t from_json(::parcel::json_t const& j, ::parcel::ParcelRegistry const&) {
         auto v = base_t::template cell_from_json<UnitRangeValue<U, T>>(j, kind_id);
         auto cell = std::make_shared<UnitRangeValueCell>(v);
-        base_t::absorb_meta(j, cell);
+        base_t::absorb_display_info(j, cell);
         return cell;
     }
 
     static ::parcel::cell_type_descriptor_t descriptor() {
         static const auto d =
             std::make_shared<::parcel::SimpleCellTypeDescriptor<UnitRangeValueCell>>(
-                ::parcel::descriptor::MetaInfo{.name = "dimval::UnitRangeValue"});
+                ::parcel::DisplayInfo{.name = "dimval::UnitRangeValue"});
         return d;
     }
 };
@@ -170,14 +170,14 @@ public:
     static ::parcel::cell_t from_json(::parcel::json_t const& j, ::parcel::ParcelRegistry const&) {
         auto v = base_t::template cell_from_json<MeasureRangeValue<M, T>>(j, kind_id);
         auto cell = std::make_shared<MeasureRangeValueCell>(v);
-        base_t::absorb_meta(j, cell);
+        base_t::absorb_display_info(j, cell);
         return cell;
     }
 
     static ::parcel::cell_type_descriptor_t descriptor() {
         static const auto d =
             std::make_shared<::parcel::SimpleCellTypeDescriptor<MeasureRangeValueCell>>(
-                ::parcel::descriptor::MetaInfo{.name = "dimval::MeasureRangeValue"});
+                ::parcel::DisplayInfo{.name = "dimval::MeasureRangeValue"});
         return d;
     }
 };

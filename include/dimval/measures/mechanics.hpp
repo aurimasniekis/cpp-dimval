@@ -14,43 +14,47 @@ DIMVAL_DEFINE_MEASURE(Speed,
                       ::dimval::MeterPerSecond,
                       "speed",
                       "Speed",
-                      "mdi:speedometer",
-                      ::dimval::palette::light_green_400)
+                      ::comms::Icons::mdi::speedometer,
+                      ::comms::Colors::mui::light_green[400])
 
 DIMVAL_DEFINE_MEASURE(Acceleration,
                       ::dimval::MeterPerSecondSquared,
                       "acceleration",
                       "Acceleration",
-                      "mdi:axis-arrow",
-                      ::dimval::palette::red_400)
+                      ::comms::Icons::mdi::axis_arrow,
+                      ::comms::Colors::mui::red[400])
 
-DIMVAL_DEFINE_MEASURE(
-    Area, ::dimval::SquareMeter, "area", "Area", "mdi:vector-square", ::dimval::palette::green_400)
+DIMVAL_DEFINE_MEASURE(Area,
+                      ::dimval::SquareMeter,
+                      "area",
+                      "Area",
+                      ::comms::Icons::mdi::vector_square,
+                      ::comms::Colors::mui::green[400])
 
 DIMVAL_DEFINE_MEASURE(Density,
                       ::dimval::KilogramPerCubicMeter,
                       "density",
                       "Density",
-                      "mdi:weight-kilogram",
-                      ::dimval::palette::brown_400)
+                      ::comms::Icons::mdi::weight_kilogram,
+                      ::comms::Colors::mui::brown[400])
 
 DIMVAL_DEFINE_MEASURE(Volume,
                       ::dimval::Litre,
                       "volume",
                       "Volume",
-                      "mdi:water-outline",
-                      ::dimval::palette::blue_grey_400)
+                      ::comms::Icons::mdi::water_outline,
+                      ::comms::Colors::mui::blue_grey[400])
 
 DIMVAL_DEFINE_MEASURE(Pressure,
                       ::dimval::Pascal,
                       "pressure",
                       "Pressure",
-                      "ph:gauge",
-                      ::dimval::palette::blue_grey_500)
+                      ::comms::Icon::from("ph:gauge"),
+                      ::comms::Colors::mui::blue_grey[500])
 
 DIMVAL_DEFINE_MEASURE(Force,
                       ::dimval::Newton,
                       "force",
                       "Force",
-                      "mdi:arrow-right-bold",
-                      ::dimval::palette::blue_grey_500)
+                      ::comms::Icons::mdi::arrow_right_bold,
+                      ::comms::Colors::mui::blue_grey[500])

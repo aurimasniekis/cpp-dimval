@@ -17,8 +17,8 @@ DIMVAL_DEFINE_UNIT(Decibel,
                    "decibel",
                    "log_ratio",
                    1.0,
-                   "mdi:chart-bell-curve",
-                   ::dimval::palette::green_400,
+                   ::comms::Icons::mdi::chart_bell_curve,
+                   ::comms::Colors::mui::green[400],
                    static constexpr ::std::string_view formatter = "decibel";
                    static constexpr int default_precision = 2;)
 
@@ -30,8 +30,8 @@ DIMVAL_DEFINE_UNIT(Neper,
                    "neper",
                    "log_ratio",
                    8.685889638065035,
-                   "mdi:chart-bell-curve",
-                   ::dimval::palette::green_500,
+                   ::comms::Icons::mdi::chart_bell_curve,
+                   ::comms::Colors::mui::green[500],
                    static constexpr int default_precision = 2;)
 
 DIMVAL_DEFINE_UNIT(DecibelMilliwatt,
@@ -41,8 +41,8 @@ DIMVAL_DEFINE_UNIT(DecibelMilliwatt,
                    "decibel-milliwatt",
                    "log_power",
                    1.0,
-                   "mdi:signal",
-                   ::dimval::palette::green_400,
+                   ::comms::Icons::mdi::signal,
+                   ::comms::Colors::mui::green[400],
                    static constexpr ::std::string_view formatter = "decibel";
                    static constexpr int default_precision = 2;)
 
@@ -53,8 +53,8 @@ DIMVAL_DEFINE_UNIT(DecibelWatt,
                    "decibel-watt",
                    "log_power",
                    1.0,
-                   "mdi:signal",
-                   ::dimval::palette::green_400,
+                   ::comms::Icons::mdi::signal,
+                   ::comms::Colors::mui::green[400],
                    static constexpr double offset = 30.0;  // dBW + 30 = dBm.
                    static constexpr ::std::string_view formatter = "decibel";
                    static constexpr int default_precision = 2;)
@@ -66,8 +66,8 @@ DIMVAL_DEFINE_UNIT(DecibelMicrovolt,
                    "decibel-microvolt",
                    "log_voltage",
                    1.0,
-                   "mdi:signal",
-                   ::dimval::palette::green_400,
+                   ::comms::Icons::mdi::signal,
+                   ::comms::Colors::mui::green[400],
                    static constexpr ::std::string_view formatter = "decibel";
                    static constexpr int default_precision = 2;)
 
@@ -78,8 +78,8 @@ DIMVAL_DEFINE_UNIT(DecibelMillivolt,
                    "decibel-millivolt",
                    "log_voltage",
                    1.0,
-                   "mdi:signal",
-                   ::dimval::palette::green_400,
+                   ::comms::Icons::mdi::signal,
+                   ::comms::Colors::mui::green[400],
                    static constexpr double offset = -60.0;  // dBmV - 60 = dBµV.
                    static constexpr ::std::string_view formatter = "decibel";
                    static constexpr int default_precision = 2;)
@@ -95,8 +95,8 @@ DIMVAL_DEFINE_UNIT(PhaseDegree,
                    "phase degree",
                    "angle",
                    0.017453292519943295,
-                   "mdi:angle-acute",
-                   ::dimval::palette::deep_purple_400,
+                   ::comms::Icons::mdi::angle_acute,
+                   ::comms::Colors::mui::deep_purple[400],
                    static constexpr ::std::string_view formatter = "degree";
                    static constexpr int default_precision = 2;
                    static constexpr bool no_space_before_symbol = true;)
@@ -108,8 +108,8 @@ DIMVAL_DEFINE_UNIT(PhaseRadian,
                    "phase radian",
                    "angle",
                    1.0,
-                   "mdi:angle-acute",
-                   ::dimval::palette::deep_purple_500,
+                   ::comms::Icons::mdi::angle_acute,
+                   ::comms::Colors::mui::deep_purple[500],
                    static constexpr int default_precision = 4;)
 
 // -----------------------------------------------------------------------------
@@ -123,8 +123,8 @@ DIMVAL_DEFINE_UNIT(OhmSquare,
                    "ohms per square",
                    "sheet_resistance",
                    1.0,
-                   "mdi:grid",
-                   ::dimval::palette::brown_500)
+                   ::comms::Icons::mdi::grid,
+                   ::comms::Colors::mui::brown[500])
 
 // -----------------------------------------------------------------------------
 // Spectral density / noise units
@@ -137,8 +137,8 @@ DIMVAL_DEFINE_UNIT(VoltPerRootHertz,
                    "volt per root hertz",
                    "voltage_noise_density",
                    1.0,
-                   "mdi:chart-line",
-                   ::dimval::palette::cyan_400)
+                   ::comms::Icons::mdi::chart_line,
+                   ::comms::Colors::mui::cyan[400])
 
 DIMVAL_DEFINE_UNIT(AmperePerRootHertz,
                    "a_per_sqrt_hz",
@@ -147,8 +147,8 @@ DIMVAL_DEFINE_UNIT(AmperePerRootHertz,
                    "ampere per root hertz",
                    "current_noise_density",
                    1.0,
-                   "mdi:chart-line",
-                   ::dimval::palette::cyan_500)
+                   ::comms::Icons::mdi::chart_line,
+                   ::comms::Colors::mui::cyan[500])
 
 DIMVAL_DEFINE_UNIT(WattPerHertz,
                    "w_per_hz",
@@ -157,8 +157,8 @@ DIMVAL_DEFINE_UNIT(WattPerHertz,
                    "watt per hertz",
                    "power_spectral_density",
                    1.0,
-                   "mdi:chart-line",
-                   ::dimval::palette::cyan_600)
+                   ::comms::Icons::mdi::chart_line,
+                   ::comms::Colors::mui::cyan[600])
 
 DIMVAL_DEFINE_UNIT(DecibelPerHertz,
                    "db_per_hz",
@@ -167,6 +167,6 @@ DIMVAL_DEFINE_UNIT(DecibelPerHertz,
                    "decibel per hertz",
                    "noise_density_db",
                    1.0,
-                   "mdi:chart-line",
-                   ::dimval::palette::cyan_700,
+                   ::comms::Icons::mdi::chart_line,
+                   ::comms::Colors::mui::cyan[700],
                    static constexpr int default_precision = 2;)

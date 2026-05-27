@@ -9,8 +9,8 @@ DIMVAL_DEFINE_MEASURE(StorageCapacity,
                       ::dimval::Byte,
                       "storage_capacity",
                       "Storage capacity",
-                      "mdi:harddisk",
-                      dv::palette::cyan_500)
+                      ::comms::Icons::mdi::harddisk,
+                      ::comms::Colors::mui::cyan[500])
 
 TEST(CustomMeasure, Registered) {
     const auto& mreg = dv::MeasureRegistry::global();
@@ -26,6 +26,6 @@ TEST(CustomMeasure, UsableAndConvertsToBaseUnit) {
 
 TEST(CustomMeasure, IconAndColor) {
     auto cap = dv::measure_value<dv::StorageCapacity>(1.0);
-    EXPECT_EQ(cap.icon(), "mdi:harddisk");
-    EXPECT_EQ(cap.color(), dv::palette::cyan_500);
+    EXPECT_EQ(cap.icon(), comms::Icon::from("mdi:harddisk"));
+    EXPECT_EQ(cap.color(), std::optional{::comms::Colors::mui::cyan[500]});
 }

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.25)
 
 project(dimval
-    VERSION     0.1.0
+    VERSION     0.2.0
     DESCRIPTION "Modern C++23 header-only library of dimensional values (units, measures, ranges)"
     LANGUAGES   CXX
 )
@@ -44,16 +44,27 @@ include(Sanitizers)
 include(Coverage)
 include(Dependencies)
 
+configure_file(
+    "${CMAKE_CURRENT_SOURCE_DIR}/include/dimval/version.hpp.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/include/dimval/version.hpp"
+    @ONLY
+)
+
 add_library(dimval INTERFACE)
 add_library(dimval::dimval ALIAS dimval)
 
 target_include_directories(dimval
     INTERFACE
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>
         $<INSTALL_INTERFACE:include>
 )
 
 target_compile_features(dimval INTERFACE cxx_std_23)
+
+# commons is required unconditionally — dimval's core descriptor types use
+# comms::Icon / comms::Color regardless of the optional integrations.
+target_link_libraries(dimval INTERFACE commons::commons)
 
 if(DIMVAL_WITH_NLOHMANN_JSON AND TARGET nlohmann_json::nlohmann_json)
     target_link_libraries(dimval INTERFACE nlohmann_json::nlohmann_json)
@@ -113,9 +124,9 @@ if(DIMVAL_BUILD_DOCS)
     )
 endif()
 
-if(DIMVAL_INSTALL AND (DEFINED nlohmann_json_SOURCE_DIR OR DEFINED parcel_SOURCE_DIR))
+if(DIMVAL_INSTALL AND (DEFINED commons_SOURCE_DIR OR DEFINED nlohmann_json_SOURCE_DIR OR DEFINED parcel_SOURCE_DIR))
     message(STATUS
-        "dimval: DIMVAL_INSTALL disabled — a fetched dependency (nlohmann_json or parcel) "
+        "dimval: DIMVAL_INSTALL disabled — a fetched dependency (commons, nlohmann_json or parcel) "
         "cannot be re-exported. Install it via system package or find_package, or disable "
         "DIMVAL_WITH_NLOHMANN_JSON / DIMVAL_WITH_PARCEL, to re-enable install rules."
     )
@@ -134,6 +145,11 @@ if(DIMVAL_INSTALL)
     install(DIRECTORY include/dimval
         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
         FILES_MATCHING PATTERN "*.hpp"
+    )
+
+    install(FILES
+        "${CMAKE_CURRENT_BINARY_DIR}/include/dimval/version.hpp"
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dimval
     )
 
     install(EXPORT dimvalTargets

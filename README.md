@@ -1,6 +1,7 @@
 # dimval
 
 [![CI](https://github.com/aurimasniekis/cpp-dimval/actions/workflows/ci.yml/badge.svg)](https://github.com/aurimasniekis/cpp-dimval/actions/workflows/ci.yml)
+[![Docs](https://github.com/aurimasniekis/cpp-dimval/actions/workflows/docs.yml/badge.svg)](https://aurimasniekis.github.io/cpp-dimval/)
 
 A header-only C++23 library for *dimensional values* — numbers paired with
 units (`Meter`, `Hertz`, `Decibel`, …) and optional semantic measures
@@ -84,10 +85,11 @@ add_executable(example main.cpp)
 target_link_libraries(example PRIVATE dimval::dimval)
 ```
 
-The `Dependencies.cmake` file fetches `nlohmann/json` (3.12.0) and
-`cpp-parcel` (0.1.0) as needed via `FetchContent_Declare(...
-FIND_PACKAGE_ARGS ...)`, so an already-installed copy is preferred over a
-new download.
+The `Dependencies.cmake` file always fetches `cpp-commons` (0.1.3) — the
+source of the `comms::Icon` / `comms::Color` types used by every descriptor —
+and fetches `nlohmann/json` (3.12.0) and `cpp-parcel` (0.2.0) as needed, via
+`FetchContent_Declare(... FIND_PACKAGE_ARGS ...)`, so an already-installed copy
+is preferred over a new download.
 
 ### CMake — `find_package` after `cmake --install`
 
@@ -96,11 +98,10 @@ find_package(dimval 0.1 REQUIRED)
 target_link_libraries(my_app PRIVATE dimval::dimval)
 ```
 
-Install rules are auto-disabled if any optional dependency was fetched
-(`nlohmann_json`, `parcel`); install via system packages or `find_package`
-to keep `DIMVAL_INSTALL=ON`, or set
-`-DDIMVAL_WITH_NLOHMANN_JSON=OFF -DDIMVAL_WITH_PARCEL=OFF` for a
-dependency-free install.
+Install rules are auto-disabled if any dependency was fetched (`commons`,
+`nlohmann_json`, `parcel`); install those via system packages or `find_package`
+to keep `DIMVAL_INSTALL=ON`. `commons` is always required, so it must be
+installed for the install rules to stay enabled.
 
 ### Meson
 
@@ -115,9 +116,13 @@ A `pkg-config` file is generated on install.
 
 ### Header-only drop-in
 
-Copy `include/dimval` into your include path. The core requires only the
-C++23 standard library; the JSON and parcel headers are guarded by
-`__has_include` checks and stay inert if the dependency is missing.
+Copy `include/dimval` into your include path. The core requires the C++23
+standard library and `cpp-commons` (for `comms::Icon` / `comms::Color`); the
+JSON and parcel headers are guarded by `__has_include` checks and stay inert if
+the dependency is missing. Note that `dimval/version.hpp` is generated from
+`version.hpp.in` by the build system — a pure copy-in must run the
+`configure_file`/`configure_file()` step (or hand-write the four
+`DIMVAL_VERSION_*` macros) before including `<dimval/dimval.hpp>`.
 
 ## Requirements
 
@@ -125,18 +130,16 @@ C++23 standard library; the JSON and parcel headers are guarded by
   CRTP-style metadata layout all rely on C++23 library features. CMake
   enforces this with `target_compile_features(dimval INTERFACE cxx_std_23)`.
 - **CMake** ≥ 3.25 (or **Meson** ≥ 1.3.0).
+- **Required dependency**:
+  - [`cpp-commons`](https://github.com/aurimasniekis/cpp-commons) ≥ 0.1.3 —
+    provides `comms::Icon` / `comms::Color`, used by every unit/measure
+    descriptor. Fetched unconditionally.
 - **Optional dependencies**:
   - [`nlohmann/json`](https://github.com/nlohmann/json) ≥ 3.12 — enables
     `<dimval/json_nlohmann.hpp>` (controlled by `DIMVAL_WITH_NLOHMANN_JSON`).
-  - [`cpp-parcel`](https://github.com/aurimasniekis/cpp-parcel) ≥ 0.1.0 —
+  - [`cpp-parcel`](https://github.com/aurimasniekis/cpp-parcel) ≥ 0.2.0 —
     enables `<dimval/parcel.hpp>` (controlled by `DIMVAL_WITH_PARCEL`;
     auto-disabled if JSON is OFF, since parcel depends on it).
-- **Compilers / platforms**: the repository does not explicitly document
-  supported compilers or platforms. The codebase uses libc++/libstdc++
-  C++23 features and falls back to `std::strtod` for floating-point
-  parsing because libc++ on macOS gates `std::from_chars` on macOS 26+
-  (see `parse_detail.hpp`). Treat the supported set as "any C++23-complete
-  toolchain"; verify with `make ci` on your platform.
 
 ## Core concepts
 
@@ -154,9 +157,15 @@ DIMVAL_DEFINE_UNIT(Frame,                  // Tag (struct name)
                    "frame",                // long_name
                    "frame_count",          // kind (compatibility group)
                    1.0,                    // factor
-                   "mdi:movie-roll",       // icon
-                   ::dimval::palette::blue_400)  // color
+                   ::comms::Icons::mdi::movie_roll,  // icon (comms::Icon catalog constant)
+                   ::comms::Colors::mui::blue[400])  // color (comms::Color, MUI shade)
 ```
+
+The `Icon` argument is a `comms::Icon`: use a catalog constant like
+`comms::Icons::mdi::movie_roll` (from `<commons/icons.hpp>`) or, for a set with
+no catalog (`ph:`, `tabler:`, …), the validated `comms::Icon::from("set:name")`.
+The `Color` argument is a `comms::Color`, e.g. a Material UI shade
+`comms::Colors::mui::blue[400]` or any `comms::Color` you construct.
 
 The macro defines `dimval::Frame`, the aliases `dimval::FrameValue`,
 `dimval::FrameValueShared`, `dimval::FrameValueUnique`,
@@ -537,25 +546,24 @@ if (auto v = dimval::MeterValue::parse("3.14 km"); !v) {
 
 ## API overview
 
-| API                                                                               | Purpose                                                       | Notes                                                                               |
-|-----------------------------------------------------------------------------------|---------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| `UnitValue<U, T>`                                                                 | Tagged numeric value                                          | Implicit ctor from `T`; `+`,`-`,scalar `*`/`/`,same-tag `/` returns `T`             |
-| `MeasureValue<M, T>`                                                              | Unit value + measure tag                                      | `as_unit_value()`, `from_unit_value<M>()` bridge to/from `UnitValue`                |
-| `UnitRangeValue<U, T>` / `MeasureRangeValue<M, T>`                                | Closed/open intervals                                         | Factories `closed/open/left_open/right_open` (unchecked); `make` returns `expected` |
-| `unit_value<U>(T)` / `measure_value<M>(T)`                                        | Free factories                                                | `noexcept`, `constexpr`                                                             |
-| `convert<To>(value)`                                                              | Same-kind unit conversion                                     | `static_assert` blocks unrelated kinds; affine-aware                                |
-| `parse_unit_value<U,T>` / `parse_measure_value<M,T>` / `parse_dynamic_unit_value` | String parsing                                                | `std::expected`; integer `T` rejects fractional input                               |
-| `IUnitValue` / `IMeasureValue`                                                    | Polymorphic handle                                            | `descriptor()`, `numeric_as_double()`, `to_string()`, `clone()`                     |
-| `UnitDescriptor` / `MeasureDescriptor`                                            | Runtime metadata                                              | Aggregate; `string_view` fields non-owning                                          |
-| `UnitRegistry::global()` / `MeasureRegistry::global()`                            | Thread-safe descriptor lookup                                 | `find`, `by_kind`, `list`, `compatible`, `register_unit`, `register_unit<Tag>()`    |
-| `DIMVAL_DEFINE_UNIT(Tag, ...)`                                                    | Define and auto-register a unit tag                           | Generates aliases `<Tag>Value`, `<Tag>ValueShared/Unique`, `<Tag>RangeValue`        |
-| `DIMVAL_DEFINE_MEASURE(Tag, BaseUnit, ...)`                                       | Define and auto-register a measure tag                        | Same alias pattern; `BaseUnit::id` becomes `base_unit_id`                           |
-| `dimval::palette::*`                                                              | Material-style color name `string_view` constants             | Use these or any literal hex string                                                 |
-| `<dimval/math.hpp>`                                                               | `abs`, `min`, `max`, `clamp`, `midpoint` (tag-preserving)     | Not in umbrella; include explicitly                                                 |
-| `<dimval/ostream.hpp>`                                                            | `operator<<` for every value type and descriptor              | In umbrella; delegates to `std::format`                                             |
-| `<dimval/json_nlohmann.hpp>`                                                      | nlohmann/json `to_json` / `from_json`                         | Auto-enabled if `nlohmann/json.hpp` is on the include path                          |
-| `<dimval/parcel.hpp>`                                                             | cpp-parcel `Cell` wrappers                                    | Auto-enabled if `parcel/parcel.h` is on the include path; depends on JSON           |
-| `dimval::version` / `version_major/minor/patch`                                   | Library version (string_view + ints) in `<dimval/dimval.hpp>` | No preprocessor macros                                                              |
+| API                                                                               | Purpose                                                       | Notes                                                                                                                      |
+|-----------------------------------------------------------------------------------|---------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| `UnitValue<U, T>`                                                                 | Tagged numeric value                                          | Implicit ctor from `T`; `+`,`-`,scalar `*`/`/`,same-tag `/` returns `T`                                                    |
+| `MeasureValue<M, T>`                                                              | Unit value + measure tag                                      | `as_unit_value()`, `from_unit_value<M>()` bridge to/from `UnitValue`                                                       |
+| `UnitRangeValue<U, T>` / `MeasureRangeValue<M, T>`                                | Closed/open intervals                                         | Factories `closed/open/left_open/right_open` (unchecked); `make` returns `expected`                                        |
+| `unit_value<U>(T)` / `measure_value<M>(T)`                                        | Free factories                                                | `noexcept`, `constexpr`                                                                                                    |
+| `convert<To>(value)`                                                              | Same-kind unit conversion                                     | `static_assert` blocks unrelated kinds; affine-aware                                                                       |
+| `parse_unit_value<U,T>` / `parse_measure_value<M,T>` / `parse_dynamic_unit_value` | String parsing                                                | `std::expected`; integer `T` rejects fractional input                                                                      |
+| `IUnitValue` / `IMeasureValue`                                                    | Polymorphic handle                                            | `descriptor()`, `numeric_as_double()`, `to_string()`, `clone()`                                                            |
+| `UnitDescriptor` / `MeasureDescriptor`                                            | Runtime metadata                                              | Aggregate; `string_view` fields non-owning                                                                                 |
+| `UnitRegistry::global()` / `MeasureRegistry::global()`                            | Thread-safe descriptor lookup                                 | `find`, `by_kind`, `list`, `compatible`, `register_unit`, `register_unit<Tag>()`                                           |
+| `DIMVAL_DEFINE_UNIT(Tag, ...)`                                                    | Define and auto-register a unit tag                           | Generates aliases `<Tag>Value`, `<Tag>ValueShared/Unique`, `<Tag>RangeValue`                                               |
+| `DIMVAL_DEFINE_MEASURE(Tag, BaseUnit, ...)`                                       | Define and auto-register a measure tag                        | Same alias pattern; `BaseUnit::id` becomes `base_unit_id`                                                                  |
+| `<dimval/math.hpp>`                                                               | `abs`, `min`, `max`, `clamp`, `midpoint` (tag-preserving)     | Not in umbrella; include explicitly                                                                                        |
+| `<dimval/ostream.hpp>`                                                            | `operator<<` for every value type and descriptor              | In umbrella; delegates to `std::format`                                                                                    |
+| `<dimval/json_nlohmann.hpp>`                                                      | nlohmann/json `to_json` / `from_json`                         | Auto-enabled if `nlohmann/json.hpp` is on the include path                                                                 |
+| `<dimval/parcel.hpp>`                                                             | cpp-parcel `Cell` wrappers                                    | Auto-enabled if `parcel/parcel.h` is on the include path; depends on JSON                                                  |
+| `dimval::version` / `version_major/minor/patch`                                   | Library version (string_view + ints) in `<dimval/dimval.hpp>` | Backed by `DIMVAL_VERSION_*` macros in the generated `<dimval/version.hpp>`                                                |
 
 ### Built-in catalog
 

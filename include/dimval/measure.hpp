@@ -8,8 +8,12 @@
 #include <dimval/traits.hpp>
 #include <dimval/unit.hpp>
 
+#include <commons/color.hpp>
+#include <commons/icon.hpp>
+
 #include <expected>
 #include <memory>
+#include <optional>
 #include <string>
 #include <string_view>
 
@@ -73,11 +77,11 @@ struct MeasureValue : public IMeasureValue {
     [[nodiscard]] static constexpr std::string_view kind() noexcept {
         return unit_t::kind;
     }
-    [[nodiscard]] static constexpr std::string_view icon() noexcept {
-        return M::icon.empty() ? unit_t::icon : M::icon;
+    [[nodiscard]] static constexpr std::optional<comms::Icon> icon() noexcept {
+        return M::icon ? M::icon : unit_t::icon;
     }
-    [[nodiscard]] static constexpr std::string_view color() noexcept {
-        return M::color.empty() ? unit_t::color : M::color;
+    [[nodiscard]] static constexpr std::optional<comms::Color> color() noexcept {
+        return M::color ? M::color : unit_t::color;
     }
 
     /// Drop the measure tag and expose the underlying UnitValue.

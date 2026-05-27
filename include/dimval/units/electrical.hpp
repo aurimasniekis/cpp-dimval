@@ -16,8 +16,8 @@ DIMVAL_DEFINE_UNIT(VoltPerMeter,
                    "volt per meter",
                    "electric_field_strength",
                    1.0,
-                   "mdi:arrow-expand-horizontal",
-                   ::dimval::palette::amber_400)
+                   ::comms::Icons::mdi::arrow_expand_horizontal,
+                   ::comms::Colors::mui::amber[400])
 
 DIMVAL_DEFINE_UNIT(AmperePerMeter,
                    "A/m",
@@ -26,8 +26,8 @@ DIMVAL_DEFINE_UNIT(AmperePerMeter,
                    "ampere per meter",
                    "magnetic_field_strength",
                    1.0,
-                   "ph:magnet",
-                   ::dimval::palette::indigo_300)
+                   ::comms::Icon::from("ph:magnet"),
+                   ::comms::Colors::mui::indigo[300])
 
 DIMVAL_DEFINE_UNIT(CoulombPerKilogram,
                    "C/kg",
@@ -36,8 +36,8 @@ DIMVAL_DEFINE_UNIT(CoulombPerKilogram,
                    "coulomb per kilogram",
                    "ionizing_radiation_exposure",
                    1.0,
-                   "mdi:radioactive-circle-outline",
-                   ::dimval::palette::pink_700)
+                   ::comms::Icons::mdi::radioactive_circle_outline,
+                   ::comms::Colors::mui::pink[700])
 
 DIMVAL_DEFINE_UNIT(VoltAmpere,
                    "VA",
@@ -46,8 +46,8 @@ DIMVAL_DEFINE_UNIT(VoltAmpere,
                    "volt-ampere",
                    "apparent_power",
                    1.0,
-                   "mdi:sine-wave",
-                   ::dimval::palette::deep_orange_300)
+                   ::comms::Icons::mdi::sine_wave,
+                   ::comms::Colors::mui::deep_orange[300])
 
 DIMVAL_DEFINE_UNIT(Var,
                    "var",
@@ -56,8 +56,8 @@ DIMVAL_DEFINE_UNIT(Var,
                    "volt-ampere reactive",
                    "reactive_power",
                    1.0,
-                   "mdi:sine-wave",
-                   ::dimval::palette::deep_orange_200)
+                   ::comms::Icons::mdi::sine_wave,
+                   ::comms::Colors::mui::deep_orange[200])
 
 DIMVAL_DEFINE_UNIT(WattHour,
                    "Wh",
@@ -66,8 +66,8 @@ DIMVAL_DEFINE_UNIT(WattHour,
                    "watt-hour",
                    "energy",
                    3600.0,
-                   "mdi:battery-high",
-                   ::dimval::palette::deep_orange_600)
+                   ::comms::Icons::mdi::battery_high,
+                   ::comms::Colors::mui::deep_orange[600])
 
 DIMVAL_DEFINE_UNIT(AmpereHour,
                    "Ah",
@@ -76,8 +76,8 @@ DIMVAL_DEFINE_UNIT(AmpereHour,
                    "ampere-hour",
                    "charge",
                    3600.0,
-                   "mdi:battery",
-                   ::dimval::palette::amber_800)
+                   ::comms::Icons::mdi::battery,
+                   ::comms::Colors::mui::amber[800])
 
 DIMVAL_DEFINE_UNIT(VoltSecond,
                    "V_s",
@@ -86,8 +86,8 @@ DIMVAL_DEFINE_UNIT(VoltSecond,
                    "volt-second",
                    "magnetic_flux",
                    1.0,
-                   "mdi:chart-timeline-variant",
-                   ::dimval::palette::amber_300)
+                   ::comms::Icons::mdi::chart_timeline_variant,
+                   ::comms::Colors::mui::amber[300])
 
 DIMVAL_DEFINE_UNIT(OhmMeter,
                    "ohm_m",
@@ -96,8 +96,8 @@ DIMVAL_DEFINE_UNIT(OhmMeter,
                    "ohm-meter",
                    "resistivity",
                    1.0,
-                   "mdi:resistor",
-                   ::dimval::palette::brown_500)
+                   ::comms::Icons::mdi::resistor,
+                   ::comms::Colors::mui::brown[500])
 
 DIMVAL_DEFINE_UNIT(SiemensPerMeter,
                    "S/m",
@@ -106,8 +106,8 @@ DIMVAL_DEFINE_UNIT(SiemensPerMeter,
                    "siemens per meter",
                    "conductivity",
                    1.0,
-                   "mdi:resistor-nodes",
-                   ::dimval::palette::brown_600)
+                   ::comms::Icons::mdi::resistor_nodes,
+                   ::comms::Colors::mui::brown[600])
 
 DIMVAL_DEFINE_UNIT(FaradPerMeter,
                    "F/m",
@@ -116,8 +116,8 @@ DIMVAL_DEFINE_UNIT(FaradPerMeter,
                    "farad per meter",
                    "permittivity",
                    1.0,
-                   "mdi:capacitor",
-                   ::dimval::palette::brown_200)
+                   ::comms::Icon::from("mdi:capacitor"),
+                   ::comms::Colors::mui::brown[200])
 
 DIMVAL_DEFINE_UNIT(HenryPerMeter,
                    "H/m",
@@ -126,8 +126,8 @@ DIMVAL_DEFINE_UNIT(HenryPerMeter,
                    "henry per meter",
                    "permeability",
                    1.0,
-                   "mdi:coil",
-                   ::dimval::palette::brown_700)
+                   ::comms::Icon::from("mdi:coil"),
+                   ::comms::Colors::mui::brown[700])
 
 DIMVAL_DEFINE_UNIT(JoulePerCoulomb,
                    "J/C",
@@ -136,8 +136,8 @@ DIMVAL_DEFINE_UNIT(JoulePerCoulomb,
                    "joule per coulomb",
                    "voltage",
                    1.0,
-                   "material-symbols:electric-bolt-rounded",
-                   ::dimval::palette::amber_400)
+                   ::comms::Icon::from("material-symbols:electric-bolt-rounded"),
+                   ::comms::Colors::mui::amber[400])
 
 DIMVAL_DEFINE_UNIT(CoulombPerVolt,
                    "C/V",
@@ -146,8 +146,8 @@ DIMVAL_DEFINE_UNIT(CoulombPerVolt,
                    "coulomb per volt",
                    "capacitance",
                    1.0,
-                   "mdi:capacitor",
-                   ::dimval::palette::brown_300)
+                   ::comms::Icon::from("mdi:capacitor"),
+                   ::comms::Colors::mui::brown[300])
 
 DIMVAL_DEFINE_UNIT(VoltPerAmpere,
                    "V/A",
@@ -156,8 +156,8 @@ DIMVAL_DEFINE_UNIT(VoltPerAmpere,
                    "volt per ampere",
                    "resistance",
                    1.0,
-                   "mdi:resistor",
-                   ::dimval::palette::brown_400)
+                   ::comms::Icons::mdi::resistor,
+                   ::comms::Colors::mui::brown[400])
 
 DIMVAL_DEFINE_UNIT(AmperePerVolt,
                    "A/V",
@@ -166,8 +166,8 @@ DIMVAL_DEFINE_UNIT(AmperePerVolt,
                    "ampere per volt",
                    "conductance",
                    1.0,
-                   "mdi:resistor-nodes",
-                   ::dimval::palette::brown_500)
+                   ::comms::Icons::mdi::resistor_nodes,
+                   ::comms::Colors::mui::brown[500])
 
 DIMVAL_DEFINE_UNIT(WeberPerAmpere,
                    "Wb/A",
@@ -176,8 +176,8 @@ DIMVAL_DEFINE_UNIT(WeberPerAmpere,
                    "weber per ampere",
                    "inductance",
                    1.0,
-                   "mdi:coil",
-                   ::dimval::palette::brown_600)
+                   ::comms::Icon::from("mdi:coil"),
+                   ::comms::Colors::mui::brown[600])
 
 DIMVAL_DEFINE_UNIT(CoulombPerSecond,
                    "C/s",
@@ -186,5 +186,5 @@ DIMVAL_DEFINE_UNIT(CoulombPerSecond,
                    "coulomb per second",
                    "current",
                    1.0,
-                   "material-symbols:electric-bolt-rounded",
-                   ::dimval::palette::amber_600)
+                   ::comms::Icon::from("material-symbols:electric-bolt-rounded"),
+                   ::comms::Colors::mui::amber[600])

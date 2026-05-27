@@ -12,8 +12,8 @@ DIMVAL_DEFINE_UNIT(Frame,
                    "frame",
                    "frame_count",
                    1.0,
-                   "mdi:movie-roll",
-                   dv::palette::blue_400)
+                   ::comms::Icons::mdi::movie_roll,
+                   ::comms::Colors::mui::blue[400])
 
 DIMVAL_DEFINE_UNIT(SubFrame,
                    "subframe",
@@ -22,8 +22,8 @@ DIMVAL_DEFINE_UNIT(SubFrame,
                    "subframe",
                    "frame_count",
                    1.0 / 16.0,
-                   "mdi:movie-roll-outline",
-                   dv::palette::blue_300)
+                   ::comms::Icon::from("mdi:movie-roll-outline"),
+                   ::comms::Colors::mui::blue[300])
 
 int main() {
     const dv::FrameValue frames = 2.0;
