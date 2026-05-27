@@ -77,7 +77,7 @@ one of the supported integrations.
 include(FetchContent)
 FetchContent_Declare(dimval
     URL      https://github.com/aurimasniekis/cpp-dimval/archive/refs/tags/v0.2.0.tar.gz
-    URL_HASH SHA256=<sha256-of-v0.2.0-tarball>
+    URL_HASH SHA256=7ec1fa93abefc0d56d8ffbffadaecc06f9e2705e7b6aee57befa9c87f73149c1
 )
 FetchContent_MakeAvailable(dimval)
 
